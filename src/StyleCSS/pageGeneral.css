@@ -1,0 +1,325 @@
+.main-screen {
+    background-color: rgba(222, 207, 207, 0.676);
+    height: 100%;
+    width: 100%;
+}
+
+.videoST {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.grid-main{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+
+.style-btn{
+    width: 100%;
+    height: 100%;
+
+}
+.style-btn2{
+    width: 100%;
+    height: 100%;
+
+}
+.Logo-landing{
+    width: 100%;
+}
+.grid-landing{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (min-width: 5001px) and (max-width: 6500px){
+    .main-screen {
+        height: 99.5vh;
+        width: 98.9vw;
+        border: 12px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    .grid-main{
+        gap: 0.1rem;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    .videoST {
+        width: 280rem;
+        height: 173rem;
+        border: 12px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    
+    .style-btn{
+        margin-left: 100rem;
+        margin-top: -10rem;
+        transform: scale(3.2);
+
+    }
+    .style-btn2{
+        margin-left: 100rem;
+        margin-top: -25rem;
+        transform: scale(3.2);
+    }
+    .Logo-landing{
+        margin-left: -12rem;
+        margin-Top: -5rem;
+        transform: scale(0.5);
+    }
+    .grid-landing{
+        grid-template-columns: 1fr;
+    }
+
+  }
+@media screen and (min-width: 4601px) and (max-width: 5000px){
+    .main-screen {
+        height: 99.5vh;
+        width: 100vw;
+        border: 12px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    .grid-main{
+        gap: 0.1rem;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    .videoST {
+        width: 220rem;
+        height: 130.2rem;
+        border: 12px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    
+    .style-btn{
+        margin-left: 50rem;
+        margin-top: -17rem;
+        transform: scale(2.5);
+
+    }
+    .style-btn2{
+        margin-left: 50rem;
+        margin-top: -31rem;
+        transform: scale(2.5);
+    }
+    .Logo-landing{
+        margin-left: 3rem;
+        margin-Top: -5rem;
+        transform: scale(0.5);
+    }
+    .grid-landing{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 3001px) and (max-width:4600px) {
+    .main-screen {
+        height: 99.5vh;
+        width: 99vw;
+        border: 10px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    .grid-main{
+        gap: 0.1rem;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    .videoST {
+        width: 145rem;
+        height: 86.5rem;
+        border: 10px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    
+    .style-btn{
+        margin-left: 1rem;
+        margin-top: -25rem;
+
+
+    }
+    .style-btn2{
+        margin-left: 1rem;
+        margin-top: -36rem;
+    }
+    .Logo-landing{
+        margin-left: -6rem;
+        margin-Top: -5rem;
+        transform: scale(0.4);
+    }
+    .grid-landing{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 1601px) and (max-width:3000px) {
+    .main-screen {
+        height: 98vh;
+        width: 99.72vw;
+        border: 10px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    .grid-main{
+        gap: 0.1rem;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    .videoST {
+        width: 104rem;
+        height: 64rem;
+        border: 10px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    
+    .style-btn{
+        margin-left: 1rem;
+        margin-top: -19rem;
+        transform: scale(1);
+
+    }
+    .style-btn2{
+        margin-left: 1rem;
+        margin-top: -25rem;
+        transform: scale(1);
+    }
+    .Logo-landing{
+        margin-left: -3rem;
+        margin-Top: -5rem;
+        transform: scale(0.4);
+    }
+    .grid-landing{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width:1600px) {
+    .main-screen {
+        height: 99.9vh;
+        width: 95.97rem;
+        border: 6px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    .grid-main{
+        gap: 0.1rem;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    .videoST {
+        width: 66rem;
+        height: 43.4rem;
+        margin-left: -11px;
+        border: 6px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    
+    .style-btn{
+        margin-top: -12rem;
+
+
+    }
+    .style-btn2{
+        margin-top: -13rem;
+
+    }
+    .Logo-landing{
+        margin-Top: -2rem;
+        transform: scale(0.5);
+    }
+    .grid-landing{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media screen and (min-width: 301px) and (max-width: 1000px) {   
+    .main-screen {
+        height: 100vh;
+        width: 100vw;
+    }
+    .grid-main{
+        gap: 0.1rem;
+        grid-template-columns: 1fr 1fr;
+
+    }
+    .videoST {
+        width: 35rem;
+        height: 43.5rem;
+        border: 1px solid #392467;
+        border-top: 1px;
+        border-bottom: 1px;
+    }
+    
+    .style-btn{
+        margin-left: -3.5rem;
+        margin-top: -16rem;
+        transform: scale(0.4);
+
+    }
+    .style-btn2{
+        margin-left: -3.5rem;
+        margin-top: -25rem;
+        transform: scale(0.4);
+    }
+    .Logo-landing{
+        margin-Top: -1rem;
+        transform: scale(0.5);
+    }
+    .grid-landing{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media screen and (max-width: 300px) {   
+    .main-screen {
+        height: 100vh;
+        width: 100vw;
+    }
+    .grid-main{
+        gap: 3rem;
+        grid-template-columns: 1fr;
+
+    }
+    .videoST {
+        width: 9.59rem;
+        height: 5rem;
+        border: 1px solid #392467;
+        border-right: 1px;
+        border-left: 1px;
+        border-top: 1px;
+    }
+    
+    .style-btn{
+        margin-left: -1.8rem;
+        margin-top: -2rem;
+        transform: scale(0.2);
+
+    }
+    .style-btn2{
+        margin-left: -5rem;
+        margin-top: -1rem;
+        transform: scale(0.2);
+    }
+    .Logo-landing{
+        margin-Top: -2.5rem;
+        transform: scale(0.8);
+    }
+    .grid-landing{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}

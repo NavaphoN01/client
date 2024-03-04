@@ -114,7 +114,7 @@ const Home = () => {
               <div className="class='card'" key={image.id}>
                 <img
                   className='ImgST'
-                  src={`${conf.apiPrefix}${image.attributes.picture.data[0].attributes.url}`}
+                  src={image.attributes.picture.data[0].attributes.url}
                   alt={image.attributes.Title}
                   onClick={() => openPopup(image)}
                 />
@@ -134,7 +134,7 @@ const Home = () => {
               <Grid item xs={12} md={12}>
                 <img
                   className='ImgST2'
-                  src={`${conf.apiPrefix}${selectedImage?.attributes.picture.data[0].attributes.url}`}
+                  src={selectedImage?.attributes.picture.data[0].attributes.url}
                   alt={selectedImage?.attributes.Title}
                 />
               </Grid>

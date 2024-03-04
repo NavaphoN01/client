@@ -155,9 +155,11 @@ export default function UserPrivate() {
             <Grid  key={index}>
               <Box sx={{ p: 2 }}>
               <div className="card">
-                <img className="img-view"
-                    src={`${conf.apiPrefix}${img.attributes.picture.data[0].attributes.url}`}
-                  />
+              <img
+                src={selectedImage?.attributes.picture?.data?.[0]?.attributes.url || ''}
+                alt={selectedImage?.attributes.Title || ''}
+                style={{ width: '100%', height: 'auto' }}
+              />
                 <div className="card__content" onClick={() => handleImageClick(img)} style={{ cursor: 'pointer' }}>
                   <p className="card__title">{img.attributes.Title}</p>
                   <p className="card__description">{img.attributes.description}</p>
@@ -201,7 +203,7 @@ export default function UserPrivate() {
             <Grid container spacing={2}>
               <Grid item xs={12} md={12}>
                 <img
-                  src={`${conf.apiPrefix}${selectedImage?.attributes.picture.data[0].attributes.url}`}
+                  src={selectedImage?.attributes.picture.data[0].attributes.url}
                   alt={selectedImage?.attributes.Title}
                   style={{ width: '100%', height: 'auto' }}
                 />

@@ -87,13 +87,23 @@ const Home = () => {
     return <Navigate to="/mainLogin" />;
   } else {
     return (
-      
-      <div className='main'>
+      <div>
         <Navbar setSearchTerm={setSearchTerm} />
-      
+
+        <div className="card-wave">
+        <div className="image"></div>
+
+        <div className="infotop">
+          <br />
+          Godzilliar
+          <br />
+          <div className="name">Website นี้เป็นเว็บที่รวบรวมรูปภาพที่หลากหลายจากผู้ใช้ทั่วโลกเเละมีรูปที่อยู่ในคลังกว่า 1000+ ให้โหลดได้ฟรี</div>
+          <div className="name">โดยเราได้รวบรวมรูป (Anime, Meme, wallpaper, ธรรมชาติ และอื่น ๆ)</div>
+        </div>
+      </div>
       <Grid>
         <div className='Box'>
-          <h2 className='Font-header'>Image</h2>
+          <h2 className='Font-header'>Picture Gallery</h2>
 
           {loader ? <div className="loader"></div> :
           <div className='gallery'>
@@ -118,49 +128,39 @@ const Home = () => {
 
         <Dialog open={Boolean(selectedImage)} onClose={closePopup} maxWidth="sm" fullWidth>
           <Grid container spacing={1} sx={{backgroundColor: '#F8F4EC'}}>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
             <DialogContent>
             <Grid container spacing={2}>
               <Grid item xs={12} md={12}>
                 <img
-                  className='ImgST'
+                  className='ImgST2'
                   src={`${conf.apiPrefix}${selectedImage?.attributes.picture.data[0].attributes.url}`}
                   alt={selectedImage?.attributes.Title}
-                  style={{ width: '100%', height: '300px' }}
                 />
               </Grid>
             </Grid>
           </DialogContent>
         </Grid>
-          <Grid item xs={6}> 
-           <Grid item xs={12} mt={3}>
+          <Grid item xs={12} mb={5}> 
+           <Grid item xs={10.5} ml={6}>
              
              <Stack
               direction="row"
-              spacing={17}
-             >
-              <Avatar/>
+              spacing={28}
+             >    
+              <Stack justifyContent="flex-start" spacing={1.5}>
+                <span className='Font-Style'>User: {selectedImage?.attributes.user_name}</span>
+                <span className='Font-Style'>Email: {selectedImage?.attributes.email}</span>
+                <span className='Font-Style'>Title: {selectedImage?.attributes.Title}</span>
+                <span className='Font-Style'>Description: {selectedImage?.attributes.description || "-----------"}</span>
+              </Stack>     
               <Box>
-              <Button 
+              <button className='Button'
                 onClick={() => handleDownload(selectedImage?.attributes.picture.data[0].attributes.url || '', selectedImage?.attributes.Title || '')}
-                sx={{
-                  '&:hover': {
-                    background: 'rgb(44, 200, 44)',
-                    color: 'white'
-                  }, 
-                  width: "100px",
-                }}
-                variant="contained"
               >
                 Download
-              </Button>
+              </button>
               </Box>
-            </Stack>
-            <Stack sx={{mt: 3}} justifyContent="flex-start" spacing={1.5}>
-              <span className='Font-Style'>User: {selectedImage?.attributes.user_name}</span>
-              <span className='Font-Style'>Email: {selectedImage?.attributes.email}</span>
-              <span className='Font-Style'>Title: {selectedImage?.attributes.Title}</span>
-              <span className='Font-Style'>Description: {selectedImage?.attributes.description || "-----------"}</span>
             </Stack>
           </Grid>
         </Grid>

@@ -21,6 +21,16 @@ body{
 .ImgST:hover {
   box-shadow: 3px 2px 5px rgba(0, 0, 0, 0.346);
   transform: translate(-3px, -3px);
+  transition: all .2s;
+}
+
+.ImgST2 {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 30px;
+  border: 3px solid #e7e0e0 ;
+
 }
 
 .Box{
@@ -29,7 +39,7 @@ body{
   background-color: #8E7AB5;
   border-radius: 30px;
   border: 3px solid #d9d2d2 ;
-  margin-top: 7rem;
+  margin-top: 2rem;
   transform: scale(0.95);
 
 }
@@ -99,8 +109,87 @@ body{
 }
 
 .Font-header{
-  margin-left: 2rem;
+  margin-left: 45%;
   margin-top: 1rem;
   font-size: 25px;
-  color:#F6F5F5;
+  color:#fffdfd;
+}
+
+.Button {
+  padding: 13px;
+  border: unset;
+  border-radius: 15px;
+  color: #000000;
+  z-index: 1;
+  background: hsl(0, 0%, 100%);
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms;
+  overflow: hidden;
+ }
+ 
+ .Button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #9d75b5;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms
+ }
+ 
+ .Button:hover {
+  color: #e8e8e8;
+ }
+ 
+ .Button:hover::before {
+  width: 100%;
+ }
+
+ .card-wave {
+  margin: 20px auto;
+  margin-top: 120px;
+  background: transparent;
+  box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+  position: relative;
+  width: 94%;
+  height: 550px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 695px;
+  margin-top: -5%;
+  background-size: fill;
+  background-image: url('../../public/wp-1.jpg');
+}
+
+.infotop {
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  top: 1em;
+  left: 0;
+  right: 0;
+  color: rgb(119, 115, 115);
+  font-weight: 900;
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 150;
+  position: relative;
+  top: 2em;
+  color: rgb(63, 62, 62);
+  margin-bottom: 1rem;
 }

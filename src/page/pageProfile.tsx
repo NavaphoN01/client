@@ -83,7 +83,7 @@ export default function Profile() {
                 <div className="profile-box">
                     <div className="profile-boxChild">
                         <div className="avatar">
-                            <Avatar src={`${conf.apiPrefix}${userData.Avatar}`} />
+                            <Avatar />
                         </div>
                         <div className="grid-text">
                             <div className="profile-text">

@@ -26,6 +26,7 @@ export default function UserPrivate() {
   const [Title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [loader, setLoader] = useState(false);
+  const [close, setClose] = useState(false);
 
   const fetchImg = async () => {
     try {
@@ -43,14 +44,13 @@ export default function UserPrivate() {
 
   const handleImageClick = (img: Image) => {
     setSelectedImage(img);
+    setClose(true);
     setTitle(img.attributes.Title || "");
     setDescription(img.attributes.description || "");
   };
 
   const handleCloseDialog = () => {
-    setSelectedImage(null);
-    setTitle("");
-    setDescription("");
+    setClose(false);
   };
 
   async function handleDeleteClick(id: string) {
@@ -83,10 +83,22 @@ export default function UserPrivate() {
   }
 
   const handleSubmit = async (): Promise<void> => {
+    setClose(false);
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "If you confirm, you cannot go back.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'confirm',
+      cancelButtonText: 'cancel'
+    });
+
     if (!selectedImage) {
       return;
     }
-
+    if (result.isConfirmed) {
     try {
       const response = await fetch(`${conf.apiPrefix}/api/images/${selectedImage.id}`, {
         method: "PUT",
@@ -100,6 +112,7 @@ export default function UserPrivate() {
             description,
         },
         }),
+      
       });
 
       if (response.ok) {
@@ -112,6 +125,7 @@ export default function UserPrivate() {
     } catch (error) {
       console.error(error);
     }
+  }
   };
 
   useEffect(() => {
@@ -140,40 +154,36 @@ export default function UserPrivate() {
           {IMG.map((img, index) => (
             <Grid  key={index}>
               <Box sx={{ p: 2 }}>
-                <Card sx={{ ml: 3, mt: 2 ,border: 3 ,maxWidth: 300 }}>
-                  <CardMedia
-                    sx={{ height: 220, cursor: 'pointer' }}
-                    image={`${conf.apiPrefix}${img.attributes.picture.data[0].attributes.url}`}
-                    onClick={() => handleImageClick(img)}
+              <div className="card">
+                <img className="img-view"
+                    src={`${conf.apiPrefix}${img.attributes.picture.data[0].attributes.url}`}
                   />
-                  <CardContent>
-                    <Typography gutterBottom component="div">
-                      <h3>{img.attributes.Title}</h3>
-                    </Typography>
-                    <CardActions>
-                      <Button
-                        sx={{
-                          '&:hover': {
-                            background: 'rgb(253, 44, 44)',
-                            color: 'white'
-                          },
-                          ml: 2
-                        }}
-                        variant="contained"
-                        startIcon={<DeleteIcon />}
-                        onClick={() => handleDeleteClick(img.id.toString())}
-                      >
-                        Delete
-                      </Button>
-                    </CardActions>
-                  </CardContent>
-                </Card>
+                <div className="card__content" onClick={() => handleImageClick(img)} style={{ cursor: 'pointer' }}>
+                  <p className="card__title">{img.attributes.Title}</p>
+                  <p className="card__description">{img.attributes.description}</p>
+                </div>
+              </div>
+              <Button
+                sx={{
+                  '&:hover': {
+                  background: 'rgb(253, 44, 44)',
+                  color: 'white'
+                  },
+                  ml: 10,
+                  mt:3,
+                }}
+                variant="contained"
+                startIcon={<DeleteIcon />}
+                onClick={() => handleDeleteClick(img.id.toString())}
+              >
+                Delete
+              </Button>
               </Box>
             </Grid>
           ))}
       </div>}
 
-        <Dialog open={selectedImage !== null} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
+        <Dialog open={close !== false} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
           <Grid container spacing={2}>
             <Grid item xs={9.8}>
               <DialogTitle>

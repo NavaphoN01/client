@@ -50,8 +50,8 @@ const Search = styled('div')(({ theme }) => ({
   marginRight: 0,
   width: 0,
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(23),
-    width: '70%',
+    marginLeft: theme.spacing(25),
+    width: '69%',
   },
 }));
 
@@ -118,10 +118,10 @@ export default function Navbar({ setSearchTerm }: NavbarProps) {
         <Toolbar>
             <img className='Logo' src={`${process.env.PUBLIC_URL}/LogoWeb.png`} alt="Logo" onClick={Home}/>
           <Typography variant="h5" component="div" sx={{color:'purple', flexGrow: 1 }}>
-            Godzilla
+            Godzilliar
           </Typography>
 
-          <Search sx={{color:'black', flexGrow: 1  ,background: 'white'}}>
+          <Search sx={{ml:22,color:'black', flexGrow: 1  ,background: 'white'}}>
             <SearchIconWrapper >
               <SearchIcon />
             </SearchIconWrapper>

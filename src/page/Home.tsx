@@ -53,7 +53,7 @@ const Home = () => {
 
   const handleDownload = async (imageId: string, imageName: string) => {
     try {
-      const response = await fetch(`${conf.apiPrefix}/${imageId}`, {
+      const response = await fetch(`${imageId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${userData.jwt}`,

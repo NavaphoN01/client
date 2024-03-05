@@ -118,7 +118,7 @@ export default function UserPrivate() {
       if (response.ok) {
         console.log("Image updated successfully");
         handleCloseDialog();
-        window.location.reload();
+
       } else {
         console.error(`Failed to update image. Status code: ${response.status}`);
       }

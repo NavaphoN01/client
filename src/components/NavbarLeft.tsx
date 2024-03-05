@@ -14,17 +14,17 @@ export default function Navbar() {
 
     const handleHome = () => {
         navigate('/');
-        window.location.reload();
+
       };
 
     const handleUserPrivate = () => {
         navigate('/ViewGallery');
-        window.location.reload();
+
     };
 
     const handleAdd = () => {
         navigate('/Add');
-        window.location.reload();
+
     };
 
     const toggleSidebar = () => {

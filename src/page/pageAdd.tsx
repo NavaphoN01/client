@@ -61,7 +61,7 @@ const Add = () => {
 
   const handleCancel = () => {
     navigate('/Add');
-    window.location.reload();
+
   };
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
@@ -119,7 +119,7 @@ const Add = () => {
           icon: 'success',
           text: 'Add complete',
         }).then(() => {
-          window.location.reload();
+
         });
         
       } else {

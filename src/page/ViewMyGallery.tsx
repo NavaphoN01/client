@@ -156,8 +156,8 @@ export default function UserPrivate() {
               <Box sx={{ p: 2 }}>
               <div className="card">
               <img
-                src={selectedImage?.attributes.picture?.data?.[0]?.attributes.url || ''}
-                alt={selectedImage?.attributes.Title || ''}
+                src={img?.attributes.picture?.data?.[0]?.attributes.url || ''}
+                alt={img?.attributes.Title || ''}
                 style={{ width: '100%', height: 'auto' }}
               />
                 <div className="card__content" onClick={() => handleImageClick(img)} style={{ cursor: 'pointer' }}>

@@ -53,7 +53,7 @@ const Home = () => {
 
   const handleDownload = async (imageId: string, imageName: string) => {
     try {
-      const response = await fetch(`${conf.apiPrefix}${imageId}`, {
+      const response = await fetch(`${conf.apiPrefix}/api/images/${imageId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${userData.jwt}`,
@@ -118,7 +118,6 @@ const Home = () => {
                   alt={image.attributes.Title}
                   onClick={() => openPopup(image)}
                 />
-                <span className='Font-Style'>{image.attributes.Title}</span>
               </div>
             ))}  
             </div>}

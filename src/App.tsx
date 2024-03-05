@@ -8,7 +8,7 @@ import Add from './page/pageAdd';
 import ViewGallery from './page/ViewMyGallery';
 import Profile from './page/pageProfile';
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -23,5 +23,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;

@@ -52,28 +52,40 @@ const Home = () => {
   }, []);
 
   const handleDownload = async (imageId: string, imageName: string) => {
-    try {
-      const response = await fetch(`${imageId}`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${userData.jwt}`,
-        },
-      });
+  try {
+    // Fetch the image using a direct URL
+    const response = await fetch(`${imageId}`, {
+      method: "GET"
+    });
 
-      if (!response.ok) {
-        throw new Error('Failed to download image');
-      }
-
-      const blob = await response.blob();
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = imageName;
-      link.click();
-    } catch (error) {
-      console.error(error);
-      setError('Error downloading image. Please try again.');
+    if (!response.ok) {
+      throw new Error('Failed to download image');
     }
-  };
+
+    // Read the response as a blob
+    const blob = await response.blob();
+
+    // Create a temporary URL for the blob
+    const url = window.URL.createObjectURL(blob);
+
+    // Create a link element
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = imageName;
+
+    // Append the link to the body and trigger the click event
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up: remove the link and revoke the object URL
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error(error);
+    setError('Error downloading image. Please try again.');
+  }
+};
+
 
   const openPopup = (image: Image) => {
     setSelectedImage(image);

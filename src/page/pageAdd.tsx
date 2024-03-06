@@ -61,7 +61,7 @@ const Add = () => {
 
   const handleCancel = () => {
     navigate('/Add');
-
+    window.location.reload();
   };
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
@@ -106,6 +106,7 @@ const Add = () => {
     formData.append("files.picture", image!);
 
     try {
+      setLoader(true);
       const response = await fetch(`${conf.apiPrefix}/api/images`, {
         method: "POST",
         headers: {
@@ -119,7 +120,7 @@ const Add = () => {
           icon: 'success',
           text: 'Add complete',
         }).then(() => {
-
+          window.location.reload();
         });
         
       } else {
@@ -130,6 +131,7 @@ const Add = () => {
           text: 'not complete',
         });
       }
+      setLoader(false);
     } catch (error) {
       console.error(error);
       MySwal.fire({
@@ -151,10 +153,14 @@ const Add = () => {
   } else {
   return (
     <div>
+        {loader ? <div className="loader"></div> 
+        :
+      <div>
       <div style={{ position: 'relative', zIndex: 2 }}>
         <NavbarLeft />
       </div>
       <div className="layout-bg">
+
       <div className="box-layout">
       <form className="dropzone-box" onSubmit={handleSubmit}>
         <h2>Upload files</h2>
@@ -225,6 +231,7 @@ const Add = () => {
       </form>
      </div>
     </div>
+    </div>}
   </div>
   );
   }

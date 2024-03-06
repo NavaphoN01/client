@@ -25,7 +25,6 @@ export default function Profile() {
     const userData = getUser();
     const [users, setUser] = useState(false);
     const navigate = useNavigate();
-    const avatar = `${conf.apiPrefix}${userData.Avatar}`
     const [username, setUsername] = useState<string>(userData.username);
     const [Age, setAge] = useState<string>(userData.Age);
     const [tel, setTel] = useState<string>(userData.tel);
